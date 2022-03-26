@@ -19,13 +19,17 @@ const inputLastName = document.getElementById("last");
 const inputEmail = document.getElementById("email");
 const inputBirthDate = document.getElementById("birthdate");
 
-
+// regex
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const nameRegex = /^[A-Za-z_-]{2,30}$/;
 const birthRegex = /^([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
-const tournoiRegex = /^[+]?\d+([.]\d+)?$/;
+const tournoiRegex = /^[+]?\d+([.]\d+)?$/; 
 
+// error message elements
 const errorFirst = document.getElementById("errorFirst");
+const errorLast = document.getElementById("errorLast");
+const errorEmail = document.getElementById("errorEmail");
+const errorBirthDate = document.getElementById("errorDate");
 
 
 // launch modal event
@@ -46,6 +50,8 @@ function closeModal() {
 // fonction validate
 function validate(event){
   event.preventDefault();
+  
+  // firstname
   const firstNameValue = inputFirstName.value.trim();
   if(firstNameValue.length < 2 || nameRegex.test(firstNameValue) == false){
     errorFirst.innerText = " Veuillez entrer deux caractères ou plus et respectez le format "
@@ -57,4 +63,52 @@ function validate(event){
     inputFirstName.style.border = "2px solid green"
   }
   
+  // lastname
+  const lastNameValue = inputLastName.value.trim();
+  if(lastNameValue.length < 2 || nameRegex.test(lastNameValue) == false){
+    errorLast.innerText = " Veuillez entrer deux caractères ou plus et respectez le format "
+    errorLast.style.fontSize = "13px"
+    errorLast.style.color = "red"
+    inputLastName.style.border = "2px solid red"
+  } else {
+    errorLast.innerText = ""
+    inputLastName.style.border = "2px solid green"
+  }
+
+  // email
+  const emailValue = inputEmail.value.trim();
+  if(emailRegex.test(emailValue) == false){
+    errorEmail.innerText = " Veuillez entrer deux caractères ou plus et respectez le format "
+    errorEmail.style.fontSize = "13px"
+    errorEmail.style.color = "red"
+    inputEmail.style.border = "2px solid red"
+  } else {
+    errorEmail.innerText = ""
+    inputEmail.style.border = "2px solid green"
+  }
+
+  // birthdate
+  const birthDateValue = inputBirthDate.value.trim();
+  if(birthRegex.test(birthDateValue) == false){
+    errorBirthDate.innerText = " Veuillez entrer deux caractères ou plus et respectez le format "
+    errorBirthDate.style.fontSize = "13px"
+    errorBirthDate.style.color = "red"
+    inputBirthDate.style.border = "2px solid red"
+  } else {
+    errorBirthDate.innerText = ""
+    inputBirthDate.style.border = "2px solid green"
+  }
+
+  // quantity tournois
+  const quantityTournoisValue = inputBirthDate.value.trim();
+  if(birthRegex.test(birthDateValue) == false){
+    errorBirthDate.innerText = " Veuillez entrer deux caractères ou plus et respectez le format "
+    errorBirthDate.style.fontSize = "13px"
+    errorBirthDate.style.color = "red"
+    inputBirthDate.style.border = "2px solid red"
+  } else {
+    errorBirthDate.innerText = ""
+    inputBirthDate.style.border = "2px solid green"
+  }
+
 }
