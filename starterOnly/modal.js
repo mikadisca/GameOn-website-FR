@@ -18,7 +18,7 @@ const inputFirstName = document.getElementById("first");
 const inputLastName = document.getElementById("last");
 const inputEmail = document.getElementById("email");
 const inputBirthDate = document.getElementById("birthdate");
-
+const inputQuantityTournois = document.getElementById("quantity")
 const checkBoxLocations = document.getElementsByName("location");
 const checkBoxCGU = document.getElementById("checkbox1");
 
@@ -33,10 +33,9 @@ const errorFirst = document.getElementById("errorFirst");
 const errorLast = document.getElementById("errorLast");
 const errorEmail = document.getElementById("errorEmail");
 const errorBirthDate = document.getElementById("errorBirthDate");
-
+const errorTournois = document.getElementById("errorTournois");
 const errorLocation = document.getElementById("errorLocation");
 const errorCGU = document.getElementById("errorCGU");
-
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -106,16 +105,16 @@ function validate(event){
   }
 
   // quantity tournois
-  /* const quantityTournoisValue = inputBirthDate.value.trim();
-  if(birthRegex.test(birthDateValue) == false){
+  const quantityTournoisValue = inputQuantityTournois.value.trim();
+  if(tournoiRegex.test(quantityTournoisValue) == false){
     errorBirthDate.innerText = " Veuillez entrer deux caractères ou plus et respectez le format "
-    errorBirthDate.style.fontSize = "13px"
-    errorBirthDate.style.color = "red"
-    inputBirthDate.style.border = "2px solid red"
+    errorTournois.style.fontSize = "13px"
+    errorTournois.style.color = "red"
+    inputQuantityTournois.style.border = "2px solid red"
   } else {
-    errorBirthDate.innerText = ""
-    inputBirthDate.style.border = "2px solid green"
-  } */
+    errorTournois.innerText = ""
+    inputQuantityTournois.style.border = "2px solid green"
+  } 
 
   // location tournois
   const inputLocationValue = document.querySelector( 'input[name="location"]:checked')
@@ -137,4 +136,6 @@ function validate(event){
   }
 
 
+  // Message remerciement
+  alert("formulaire validé");
 }
