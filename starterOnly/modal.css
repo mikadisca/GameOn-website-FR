@@ -14,7 +14,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
+  /*background-image: url("background.png");*/
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -515,6 +515,48 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
+
+  /* css perso */
+  #myTopnav{
+    margin: 20px;
+    padding: 2vw;
+  }
+  .hero-content{
+    padding: 0px;
+  }
+  .header-logo img{
+    height: 22px;
+  }
+  a.icon i{
+    height: 22px;
+    color: red;
+  }
+  .hero-section {
+    min-height: auto;
+  } 
+  .hero-headline {
+    font-size: 2.25rem;
+    font-weight: bold;
+  } 
+  .hero-text{
+    font-size: 0.85rem;
+  }
+
+  .bground{
+    margin-top: 70px;
+    max-height: 100vh;
+    background-color: transparent;
+  }
+  .bground .content{
+    margin: 0% auto;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+  .modal-body{
+    padding-bottom: 4em;
+  }
+
+
 }
 
 @keyframes modalopen {
