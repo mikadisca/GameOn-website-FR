@@ -21,6 +21,24 @@ body {
   margin: 0 auto;
 }
 
+
+#thx{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  display: none;
+}
+#thx p{
+  margin: 80% 0;
+  font-size: 2.5rem;
+  font-weight: normal;
+}
+#fermer{
+  width: 50%;
+  margin: auto;
+}
 p {
   margin-bottom: 0;
   padding: 0.5vw;

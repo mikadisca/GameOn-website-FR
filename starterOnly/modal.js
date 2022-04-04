@@ -12,6 +12,8 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeModalBtn = document.querySelectorAll(".close");
+const fermerModalBtn = document.getElementById("fermer");
+const validModal = document.getElementById("thx");
 
 
 // form elements
@@ -43,6 +45,8 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // assigner un écouteur au bouton close
 closeModalBtn.forEach((span) => span.addEventListener("click", closeModal));
+
+fermerModalBtn.addEventListener("click",closeModal)
 
 // launch modal form
 function launchModal() {
@@ -85,6 +89,8 @@ function validateCheckboxes(condition, errorTag, errorMessage) {
     }
 }
 
+
+
 // fonction validate
 function validate(event) {
     event.preventDefault();
@@ -104,12 +110,13 @@ function validate(event) {
         // Affichage du modal de confirmation
         showConfirmationModal();
     }
-};
-const formContent = document.getElementsByName("reserve");
+}
+
+
 function showConfirmationModal() {
-    formContent.style.display = "none";
-
-};
-
+    const formContent = document.getElementById("form")
+    formContent.style.display = "none"
+    validModal.style.display = "block"
+}
 
 // DRY => DON'T REPEAT YOURSELF
