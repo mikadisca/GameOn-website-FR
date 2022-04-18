@@ -27,7 +27,8 @@ const checkBoxCGU = document.getElementById("checkbox1");
 
 // regex
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-const nameRegex = /^[A-Za-z_-]{2,30}$/;
+//const nameRegex = /^[A-Za-z_-]{2,30}$/;
+const nameRegex = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u;
 const birthRegex = /^([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/;
 const tournoiRegex = /^[+]?\d+([.]\d+)?$/;
 
@@ -73,6 +74,21 @@ function validateInput(input, regex, spanError, errorMessage) {
     }
 }
 
+function validateTournoisInput(input, regex, spanError, errorMessage) {
+    const value = input.value.trim();
+    if (regex.test(value) == false) {
+        spanError.innerText = errorMessage
+        spanError.style.fontSize = "13px"
+        spanError.style.color = "red"
+        input.style.border = "2px solid red"
+        return false;
+    } else {
+        spanError.innerText = ""
+        input.style.border = "2px solid green"
+        return true;
+    }
+}
+
 function handleError(input, errorMessage) {
     input.innerText = errorMessage
     input.style.fontSize = "13px"
@@ -99,7 +115,7 @@ function validate(event) {
     const isLastNameValid = validateInput(inputLastName, nameRegex, errorLast, " Veuillez entrer 2 caractères ou plus pour le champ du nom. ");
     const isEmailNameValid = validateInput(inputEmail, emailRegex, errorEmail, " Veuillez entrer une adresse email valide ");
     const isBirthdateNameValid = validateInput(inputBirthDate, birthRegex, errorBirthDate, "Vous devez entrer votre date de naissance. ");
-    const isTournoisValid = validateInput(inputQuantityTournois, tournoiRegex, errorTournois, " Veuillez entrer deux caractères ou plus et respectez le format ");
+    const isTournoisValid = validateTournoisInput(inputQuantityTournois, tournoiRegex, errorTournois, " Veuillez entrer deux caractères ou plus et respectez le format ");
 
     // location tournois
     const inputLocationValue = document.querySelector('input[name="location"]:checked')
